@@ -97,8 +97,8 @@ TARGET_SEC_FP_HAL_VARIANT := bauth
 
 # Samsung Hardware
 JAVA_SOURCE_OVERLAYS := \
-    org.lineageos.hardware|hardware/samsung/lineagehw|**/*.java \
-    org.lineageos.hardware|$(LOCAL_PATH)/lineagehw|**/*.java
+    org.mokee.hardware|hardware/samsung/mkhw|**/*.java \
+    org.mokee.hardware|$(LOCAL_PATH)/mkhw|**/*.java
 
 # Graphics
 USE_OPENGL_RENDERER := true

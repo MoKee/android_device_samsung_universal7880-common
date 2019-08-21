@@ -23,9 +23,9 @@ DEVICE_COMMON=universal7880-common
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-LINEAGE_ROOT="$MY_DIR"/../../..
+MK_ROOT="$MY_DIR"/../../..
 
-HELPER="$LINEAGE_ROOT"/vendor/lineage/build/tools/extract_utils.sh
+HELPER="$MK_ROOT"/vendor/mk/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
@@ -49,13 +49,13 @@ else
 fi
 
 # Initialize the helper
-setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
+setup_vendor "$DEVICE_COMMON" "$VENDOR" "$MK_ROOT" true
 
 extract "$MY_DIR"/proprietary-files.txt "$SRC"
 extract "$MY_DIR"/proprietary-files-bsp.txt "$SRC"
 
-# Remove dependencies that are not used in lineage 
-BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE_COMMON"/proprietary
+# Remove dependencies that are not used in mokee 
+BLOB_ROOT="$MK_ROOT"/vendor/"$VENDOR"/"$DEVICE_COMMON"/proprietary
 
 for SEC_NFC_LIB in $(grep -lr "vendor\.samsung\.hardware\.nfc@1\.0\.so" $BLOB_ROOT); do
     patchelf --remove-needed vendor.samsung.hardware.nfc@1.0.so "$SEC_NFC_LIB" || true
