@@ -8,7 +8,7 @@
         "target_path": "kernel/samsung/universal7880"
     },
     {
-        "repository": "android_vendor_samsung_universal7580-common",
-        "target_path": "vendor/samsung/universal7580-common"
+        "repository": "android_vendor_samsung_universal7880-common",
+        "target_path": "vendor/samsung/universal7880-common"
     }
 ]
